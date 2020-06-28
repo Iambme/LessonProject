@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <appender name="MyConsole" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{dd.MM.yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{20} - %msg%n</pattern>
+            <!--            В pattern мы указываем, что в лог нужно писать сначала дату с временем %d{dd.MM.yyyy HH:mm:ss.SSS}, -->
+            <!--            потом название потока [%thread], затем пять символов уровеня логирования %-5level, затем название логера, -->
+            <!--            пытаясь уместить его в 36 символов, %logger{36}, затем сообщение логера %msg и перевод строки %n.-->
+        </encoder>
+    </appender>
+
+    <!--    позволяет разделить файлы по временным отрезкам-->
+    <appender name="MyRollingFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logRollingFile.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- minute rollover -->
+            <fileNamePattern>logs\%d{yyyy-MM-dd_HH-mm}.log</fileNamePattern>
+
+            <!-- keep 30 days' worth of history capped at 3GB total size -->
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{dd.MM.yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="MyFileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logFile2.log</file>
+        <append>true</append>
+        <!-- set immediateFlush to false for much higher logging throughput -->
+        <immediateFlush>true</immediateFlush>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%d{dd.MM.yyyy HH:mm:ss.SSS} [%thread] %-5level %logger{40} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <logger name="lesson.loging.ex1.Main" level="DEBUG"/>
+    <!--    настройка для классов внутри пакета logging-->
+    <!--    <logger name="lesson.loging" level="DEBUG"/> -->
+    <logger name="homework.regular_expressions.ex6.Main" level="INFO"/>
+
+    <!--    файловый аппендер для пакета ex2_fileLogger-->
+    <logger name="lesson.loging.ex2_fileLogger" level="INFO">
+        <appender-ref ref="MyRollingFileAppender"/>
+    </logger>
+
+    <logger name="homework.json" level="DEBUG">
+        <appender-ref ref="MyConsole" />
+        <appender-ref ref="MyFileAppender" />
+    </logger>
+
+    <root level="debug">
+        <!--        <appender-ref ref="MyConsole" />-->
+    </root>
+</configuration>

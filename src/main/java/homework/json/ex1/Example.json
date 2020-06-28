@@ -1,0 +1,24 @@
+{
+  "address" : "Lenina street",
+  "books" : [ {
+    "pages" : [ {
+      "number" : "1",
+      "text" : "random text from book1"
+    }, {
+      "number" : "2",
+      "text" : "random text1 from book1"
+    } ],
+    "author" : "Stephen King",
+    "title" : "IT"
+  }, {
+    "pages" : [ {
+      "number" : "1",
+      "text" : "random text from book2"
+    }, {
+      "number" : "2",
+      "text" : "random text1 from book2"
+    } ],
+    "author" : "Oscar Wild",
+    "title" : "Dorian Grey"
+  } ]
+}

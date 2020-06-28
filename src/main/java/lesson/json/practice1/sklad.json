@@ -1,0 +1,14 @@
+{
+  "adress" : "adress1",
+  "tovars": [
+    {
+      "name" : "samsung s10",
+      "price": "20000"
+    },
+
+    {
+      "name" : "samsung s20",
+      "price": "20023"
+    }
+  ]
+}
