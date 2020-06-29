@@ -1,4 +1,4 @@
-package lesson.reflection;
+package lesson.reflection.ex1;
 
 public class Tovar {
     private String name;

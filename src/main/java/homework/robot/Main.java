@@ -1,4 +1,4 @@
-package homework.etc;
+package homework.robot;
 
 
 import java.util.Arrays;
@@ -6,10 +6,6 @@ import java.util.Arrays;
 public class Main {
 
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
-String q = "";
-String s = "lala";
-String w = null;
-
 
 
     }

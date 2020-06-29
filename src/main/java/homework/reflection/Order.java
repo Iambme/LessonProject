@@ -11,6 +11,9 @@ public class Order {
     public void add(Dish dish) {
         dished.add(dish);
     }
+    public void add(Dish... dish) {
+        //dished.add(dish);
+    }
 
     public int orderSum() {
         int sum = 0;

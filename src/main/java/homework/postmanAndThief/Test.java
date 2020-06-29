@@ -1,9 +1,8 @@
-package homework.etc;
+package homework.postmanAndThief;
 
-import homework.io.ex3.MyReader;
+import homework.robot.Main;
 
-import java.io.*;
-import java.util.Arrays;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -13,11 +12,6 @@ class Test {
     public static final String WEAPONS = "weapons";
     public static final String BANNED_SUBSTANCE = "banned substance";
 
-    //Stepik code: start
-
-    //Тут Писать свой КОД
-
-    //Stepik code: end
 
     public static void main(String[] args) {
         Logger logger = Logger.getLogger(Main.class.getName());
@@ -60,20 +54,12 @@ class Test {
                 + " Цена=" + ((MailPackage) p).getContent().getPrice()));
     }
 
-    /*
-        Интерфейс: сущность, которую можно отправить по почте.
-        У такой сущности можно получить от кого и кому направляется письмо.
-    */
     public static interface Sendable {
         String getFrom();
 
         String getTo();
     }
 
-    /*
-       Абстрактный класс,который позволяет абстрагировать логику хранения
-       источника и получателя письма в соответствующих полях класса.
-    */
     public static abstract class AbstractSendable implements Sendable {
         protected final String from;
         protected final String to;
@@ -104,9 +90,6 @@ class Test {
         }
     }
 
-    /*
-    Письмо, у которого есть текст, который можно получить с помощью метода `getMessage`
-    */
     public static class MailMessage extends AbstractSendable {
         private final String message;
 
@@ -125,14 +108,11 @@ class Test {
             if (o == null || getClass() != o.getClass()) return false;
             if (!super.equals(o)) return false;
             MailMessage that = (MailMessage) o;
-            if (message != null ? !message.equals(that.message) : that.message != null) return false;
+            if (!Objects.equals(message, that.message)) return false;
             return true;
         }
     }
 
-    /*
-    Посылка, содержимое которой можно получить с помощью метода `getContent`
-    */
     public static class MailPackage extends AbstractSendable {
         private final Package content;
 
@@ -156,9 +136,6 @@ class Test {
         }
     }
 
-    /*
-    Класс, который задает посылку. У посылки есть текстовое описание содержимого и целочисленная ценность.
-    */
     public static class Package {
         private final String content;
         private final int price;
@@ -190,21 +167,14 @@ class Test {
         }
     }
 
-    /*
-    Интерфейс, который задает класс, который может каким-либо образом обработать почтовый объект.
-    */
     public static interface MailService {
         Sendable processMail(Sendable mail);
     }
 
-    /*
-    Класс, в котором скрыта логика настоящей почты
-    */
     public static class RealMailService implements MailService {
 
         @Override
         public Sendable processMail(Sendable mail) {
-            // Здесь описан код настоящей системы отправки почты.
             return mail;
         }
     }

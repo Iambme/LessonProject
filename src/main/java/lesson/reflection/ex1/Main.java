@@ -1,16 +1,10 @@
-package lesson.reflection;
+package lesson.reflection.ex1;
 
-import java.awt.*;
-import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
-import java.util.Arrays;
-import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException, MalformedURLException, NoSuchFieldException {
@@ -43,7 +37,7 @@ public class Main {
 
         System.out.println();
         //Второй способ получения описания класса
-        //Class clazz2 = Class.forName("lesson.reflection.Tovar");
+        //Class clazz2 = Class.forName("lesson.reflection.ex1.Tovar");
         System.out.println(Tovar.class.getName()); //Выведен название класа в полном виде
         Class clazz2 = Class.forName(Tovar.class.getName());
         Tovar tovar3 = (Tovar)clazz2.getDeclaredConstructor(String.class, int.class).newInstance("Tovar1", 100);
@@ -66,7 +60,7 @@ public class Main {
 //
 //
 //        //load the Address class in 'c:\\other_classes\\'
-//        Class  cls = cl.loadClass("lesson.reflection.Tovar");
+//        Class  cls = cl.loadClass("lesson.reflection.ex1.Tovar");
 //        Tovar myClass = (Tovar)cls.getDeclaredConstructor().newInstance();
 //        System.out.println(myClass);
 
