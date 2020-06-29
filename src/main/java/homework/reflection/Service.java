@@ -22,30 +22,30 @@ public class Service {
             System.out.println("5.Выход");
             int userInput = Integer.parseInt(reader.readLine());
             switch (userInput) {
-                case 1 -> {
+                case 1 : {
                     System.out.println("Введите имя");
                     String name = reader.readLine();
                     createClient(name);
 
 
                 }
-                case 2 -> {
+                case 2 : {
                     System.out.println("Введите имя");
                     String name = reader.readLine();
                     createOrder(name);
                 }
-                case 3 -> {
+                case 3 : {
                     System.out.println("Введите имя");
                     String name = reader.readLine();
                     check(new Client(name));
                 }
-                case 4 -> {
+                case 4 : {
                     System.out.println("Ещё не расчитались");
                     for (Map.Entry<Client, Order> entry : orderMap.entrySet()) {
                         System.out.println(entry.getKey().getName() + " номер заказа " + entry.getKey().getNumber());//рефлексия
                     }
                 }
-                case 5 -> isOver = true;
+                case 5 : isOver = true;
             }
         }
 
@@ -62,7 +62,7 @@ public class Service {
 
     }
 
-    private void createClient(String name) throws Exception {//возвращает булеан
+    private void createClient(String name) throws Exception {
         Class<Client> clientClass = Client.class;
         Client client = (Client) clientClass.getDeclaredConstructor(String.class).newInstance(name);
 
@@ -75,14 +75,14 @@ public class Service {
     private Dish createDish(int arg) throws Exception {
         Class<Dish> dishClass = Dish.class;
         switch (arg) {
-            case 1 -> {
+            case 1 : {
                 return (Dish) dishClass.getDeclaredConstructor(String.class, int.class).newInstance("Суп с фрикадельками", 50);
 
             }
-            case 2 -> {
+            case 2 : {
                 return (Dish) dishClass.getDeclaredConstructor(String.class, int.class).newInstance("Котлетки с пюрешкой", 70);
             }
-            case 3 -> {
+            case 3 : {
                 return (Dish) dishClass.getDeclaredConstructor(String.class, int.class).newInstance("Маффин", 20);
             }
         }
