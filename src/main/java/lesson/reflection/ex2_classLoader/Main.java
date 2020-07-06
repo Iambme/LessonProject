@@ -1,6 +1,7 @@
 package lesson.reflection.ex2_classLoader;
 
 import lesson.annotation.Car;
+import lesson.patterns.decorator.Tovar;
 
 import java.lang.reflect.Field;
 import java.net.URLClassLoader;
@@ -27,6 +28,8 @@ public class Main {
 //        for(Field field : fields){
 //            System.out.println(field);
 //        }
+
+
 
     }
 }
