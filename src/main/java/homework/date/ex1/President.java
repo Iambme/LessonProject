@@ -1,4 +1,4 @@
-package homework.data;
+package homework.date.ex1;
 
 import java.util.Date;
 import java.util.Objects;

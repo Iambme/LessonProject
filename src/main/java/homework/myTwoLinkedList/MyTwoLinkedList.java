@@ -146,29 +146,27 @@ public class MyTwoLinkedList {
             Node currentNode;
             if (index == 0) {
                 // 1 2 3
-               nextNode = getNodeByIndexFromHead(1);
-               nextNode.linkToPrevNode = node;
-               head.linkToNextNode = null;
-               head = node;
-               node.linkToNextNode = nextNode;
-            }
-            else if(index == size-1){
-                prevNode = getNodeByIndexFromLast(index-1);
+                nextNode = getNodeByIndexFromHead(1);
+                nextNode.linkToPrevNode = node;
+                head.linkToNextNode = null;
+                head = node;
+                node.linkToNextNode = nextNode;
+            } else if (index == size - 1) {
+                prevNode = getNodeByIndexFromLast(index - 1);
                 last.linkToPrevNode = null;
                 prevNode.linkToNextNode = node;
                 last = node;
                 node.linkToPrevNode = prevNode;
-            }
-            else {
+            } else {
 
                 if (size - index > index) {
                     currentNode = getNodeByIndexFromHead(index);
-                    prevNode = getNodeByIndexFromHead(index-1);
-                    nextNode = getNodeByIndexFromHead(index+1);
+                    prevNode = getNodeByIndexFromHead(index - 1);
+                    nextNode = getNodeByIndexFromHead(index + 1);
                 } else {
                     currentNode = getNodeByIndexFromLast(index);
-                    prevNode = getNodeByIndexFromLast(index-1);
-                    nextNode = getNodeByIndexFromLast(index+1);
+                    prevNode = getNodeByIndexFromLast(index - 1);
+                    nextNode = getNodeByIndexFromLast(index + 1);
                 }
                 currentNode.linkToPrevNode = null;
                 currentNode.linkToNextNode = null;
@@ -181,11 +179,11 @@ public class MyTwoLinkedList {
         }
     }
 
-    public boolean contains(int val){
+    public boolean contains(int val) {
         Node currentNode = head;
         int currentIndex = 0;
         while (currentIndex < size) {
-            if(currentNode.val==val){
+            if (currentNode.val == val) {
                 return true;
             }
             currentNode = currentNode.linkToNextNode;

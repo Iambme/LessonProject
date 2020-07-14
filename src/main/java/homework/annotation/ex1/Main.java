@@ -3,7 +3,11 @@ package homework.annotation.ex1;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.lang.reflect.InvocationTargetException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -13,13 +17,15 @@ public class Main {
         String path = clazz.getAnnotation(DBPath.class).path();
 
         FileReader fileReader = new FileReader(path);
-        ArrayList<String> arrayList = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
+//        ArrayList<String> arrayList = new ArrayList<>();
+//        BufferedReader bufferedReader = new BufferedReader(fileReader);
+//
+//        while (bufferedReader.ready()) {
+//            arrayList.add(bufferedReader.readLine());
+//        }
 
-        while (bufferedReader.ready()) {
-            arrayList.add(bufferedReader.readLine());
-        }
-
+        Path pathNio = Paths.get(path);
+        List<String> arrayList = Files.readAllLines(pathNio);
 
         for (String s : arrayList) {
             String[] tovarFields = s.split(", ");

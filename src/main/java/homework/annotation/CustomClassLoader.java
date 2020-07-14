@@ -1,7 +1,5 @@
 package homework.annotation;
 
-import lesson.annotation.TovarType;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -11,8 +9,9 @@ public class CustomClassLoader extends ClassLoader{
     public List<Class> loadClasses(String name) throws Exception {
         File[] arrFiles = new File(name).listFiles();
         List<Class> classList = new ArrayList<>();
-        for (File arrFile : arrFiles) {
-            Class clazz = findClass(arrFile.getAbsolutePath());
+        for (File file : arrFiles) {
+            System.out.println(file.getAbsolutePath());
+            Class clazz = findClass(file.getAbsolutePath());
             if (clazz != null) {
                 if (clazz.getAnnotation(SocialProfile.class) != null) {
                     classList.add(clazz);
@@ -27,7 +26,7 @@ public class CustomClassLoader extends ClassLoader{
         File file = new File(name);
         FileInputStream fis = null;
         try {
-            fis = new FileInputStream(file.getAbsolutePath());
+            fis = new FileInputStream(file);
             byte[] arr = new byte[(int)file.length()];
             fis.read(arr);
             return defineClass(null, arr, 0, arr.length);

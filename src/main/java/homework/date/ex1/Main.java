@@ -1,6 +1,7 @@
-package homework.data;
+package homework.date.ex1;
 
 import java.io.*;
+import java.nio.file.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -14,10 +15,10 @@ public class Main {
 
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-
-        String path = "src\\main\\java\\homework\\data\\presidents";
-        FileReader fileReader = new FileReader(path);
-        FileWriter fileWriter = new FileWriter(path, true);
+        String path1 = "src\\main\\java\\homework\\data\\presidents";
+        Path path = Paths.get(path1);//nio
+        FileReader fileReader = new FileReader(String.valueOf(path));
+        FileWriter fileWriter = new FileWriter(String.valueOf(path), true);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
         String name;
         Date dateFirst;
@@ -120,7 +121,7 @@ public class Main {
                 break;
 
                 case 5: {
-                    FileWriter fileWriter1 = new FileWriter(path);
+                    FileWriter fileWriter1 = new FileWriter(String.valueOf(path));
                     BufferedWriter bufferedWriter1 = new BufferedWriter(fileWriter1);
                     writeToFile(presidentDataBase.getPresidents(), bufferedWriter1);
                     bufferedWriter.close();

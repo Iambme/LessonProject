@@ -1,10 +1,9 @@
-package homework.data;
+package homework.date.ex1;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class PresidentDataBase {
-private ArrayList<President> presidents;
+    private ArrayList<President> presidents;
 
     public PresidentDataBase() {
         this.presidents = new ArrayList<>();
