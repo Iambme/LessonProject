@@ -17,7 +17,8 @@ void goRight(int steps)
 steps - количество шагов в соответствующую сторону в виде случайного числа в диапазоне от 1 до 5
 
 Каждый поток вызывает каждый раз только свой метод по 3 раза.
-Каждое движение робота в ту или иную сторону занимает 1 секунду на каждый шаг, перед вызовом метода sleep нужно выводить "Робот идет в [вперед/влево/вправо]...". Также нужно выводить сколько шагов прошел робот. (пример ниже)
+Каждое движение робота в ту или иную сторону занимает 1 секунду на каждый шаг, перед вызовом метода sleep нужно выводить "Робот идет в [вперед/влево/вправо]...".
+ Также нужно выводить сколько шагов прошел робот. (пример ниже)
 
 Вызвать все три потока в мейне. Правильным результатом работы программы будет вызов методов движения по очередно в любом порядке. То есть пока робот не закончит идти вперед, он не может начать идти в другую сторону.
 
@@ -30,18 +31,26 @@ steps - количество шагов в соответствующую сто
             Random random = new Random();
 
             try {
+                int i = 0;
+                while(i<3){
+                    synchronized (robot) {
+                        robot.goForward(random.nextInt(5) + 1);
+                        i++;
+                    }
+                    Thread.sleep(1);
+                }
 
-                synchronized (robot) {
-                    robot.goForward(random.nextInt(5) + 1);
-                }
-                Thread.sleep(100);
-                synchronized (robot) {
-                    robot.goForward(random.nextInt(5) + 1);
-                }
-                Thread.sleep(100);
-                synchronized (robot) {
-                    robot.goForward(random.nextInt(5) + 1);
-                }
+//                synchronized (robot) {
+//                    robot.goForward(random.nextInt(5) + 1);
+//                }
+//                Thread.sleep(100);
+//                synchronized (robot) {
+//                    robot.goForward(random.nextInt(5) + 1);
+//                }
+//                Thread.sleep(100);
+//                synchronized (robot) {
+//                    robot.goForward(random.nextInt(5) + 1);
+//                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -52,18 +61,25 @@ steps - количество шагов в соответствующую сто
             Random random = new Random();
 
             try {
-
-                synchronized (robot) {
-                    robot.goLeft(random.nextInt(5) + 1);
+                int i = 0;
+                while(i<3){
+                    synchronized (robot) {
+                        robot.goLeft(random.nextInt(5) + 1);
+                        i++;
+                    }
+                    Thread.sleep(1);
                 }
-                Thread.sleep(100);
-                synchronized (robot) {
-                    robot.goLeft(random.nextInt(5) + 1);
-                }
-                Thread.sleep(100);
-                synchronized (robot) {
-                    robot.goLeft(random.nextInt(5) + 1);
-                }
+//                synchronized (robot) {
+//                    robot.goLeft(random.nextInt(5) + 1);
+//                }
+//                Thread.sleep(100);
+//                synchronized (robot) {
+//                    robot.goLeft(random.nextInt(5) + 1);
+//                }
+//                Thread.sleep(100);
+//                synchronized (robot) {
+//                    robot.goLeft(random.nextInt(5) + 1);
+//                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -74,17 +90,25 @@ steps - количество шагов в соответствующую сто
             Random random = new Random();
 
             try {
-                synchronized (robot) {
-                    robot.goRight(random.nextInt(5) + 1);
+                int i = 0;
+                while(i<3){
+                    synchronized (robot) {
+                        robot.goRight(random.nextInt(5) + 1);
+                        i++;
+                    }
+                    Thread.sleep(1);
                 }
-                Thread.sleep(100);
-                synchronized (robot) {
-                    robot.goRight(random.nextInt(5) + 1);
-                }
-                Thread.sleep(100);
-                synchronized (robot) {
-                    robot.goRight(random.nextInt(5) + 1);
-                }
+//                synchronized (robot) {
+//                    robot.goRight(random.nextInt(5) + 1);
+//                }
+//                Thread.sleep(100);
+//                synchronized (robot) {
+//                    robot.goRight(random.nextInt(5) + 1);
+//                }
+//                Thread.sleep(100);
+//                synchronized (robot) {
+//                    robot.goRight(random.nextInt(5) + 1);
+//                }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

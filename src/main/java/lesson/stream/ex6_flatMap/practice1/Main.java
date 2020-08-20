@@ -4,6 +4,7 @@ import homework.library.Book;
 import homework.library.Library;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,7 +29,7 @@ public class Main {
 
         libraries.stream() //Stream<Library>
                 .map(bookLibrary -> bookLibrary.arr) //Stream<Library> -> Stream<ArrayList<Book>>
-                .flatMap(books -> books.stream()) //Stream<ArrayList<Book>> -> Stream<Book>
+                .flatMap(Collection::stream) //Stream<ArrayList<Book>> -> Stream<Book>
                 .forEach(x -> System.out.println(x.getName()));
 
 

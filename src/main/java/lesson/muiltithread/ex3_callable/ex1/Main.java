@@ -1,4 +1,4 @@
-package lesson.muiltithread.ex3_callable;
+package lesson.muiltithread.ex3_callable.ex1;
 
 import java.util.Random;
 import java.util.concurrent.*;

@@ -1,4 +1,4 @@
-package lesson.muiltithread.ex3_callable;
+package lesson.muiltithread.ex3_callable.ex1;
 
 import java.util.Arrays;
 import java.util.concurrent.Callable;
