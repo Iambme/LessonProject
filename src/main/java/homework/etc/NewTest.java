@@ -5,21 +5,18 @@ import java.util.function.UnaryOperator;
 
 public class NewTest {
     public static void main(String[] args) {
-        System.out.println(squareDigits(9119));
-        System.out.println(Math.pow(9, 2));
+        System.out.println(squareDigits("bitcoin take over the world maybe who knows perhaps"));
     }
 
-    public static int squareDigits(int n) {
-        String digit = String.valueOf(n);
-        StringBuilder digitString = new StringBuilder();
-        int a;
-        for (int i = 0; i < digit.length(); i++) {
-            System.out.println(digit.charAt(i));
-            a =  Integer.parseInt(digit.charAt(i)+"") * Integer.parseInt(digit.charAt(i)+"");
-            digitString.append(a);
+    public static int squareDigits(String n) {
+        String[] strings = n.split("");
+        int min = strings[0].length();
+        for (int i = 0; i <strings.length ; i++) {
+            if(min<strings[i].length()){
+                min=strings[i].length();
+            }
         }
-        System.out.println(digitString);
-        return Integer.parseInt(digitString.toString());
+        return min;
     }
 
 
