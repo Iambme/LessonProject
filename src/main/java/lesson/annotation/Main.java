@@ -18,7 +18,8 @@ public class Main {
 
                 Annotation annotation = arr[i].getAnnotation(TovarType.class);
                 if(annotation!=null) {
-                    Object obj = arr[i].getDeclaredConstructor(int.class, String.class).newInstance(10, "Tovar");
+                    TovarType tovarType = (TovarType)annotation;
+                    Object obj = arr[i].getDeclaredConstructor(int.class, String.class).newInstance(10, tovarType.typeName());
                     tovars.add(obj);
                 }
             }

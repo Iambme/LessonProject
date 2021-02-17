@@ -42,22 +42,39 @@
     </appender>
 
 
-    <logger name="lesson.loging.ex1.Main" level="DEBUG"/>
-    <!--    настройка для классов внутри пакета logging-->
-    <!--    <logger name="lesson.loging" level="DEBUG"/> -->
-    <logger name="homework.regular_expressions.ex6.Main" level="INFO"/>
+<!--    <logger name="lesson.loging.ex1.Main" level="DEBUG"/>-->
+<!--    &lt;!&ndash;    настройка для классов внутри пакета logging&ndash;&gt;-->
+<!--    &lt;!&ndash;    <logger name="lesson.loging" level="DEBUG"/> &ndash;&gt;-->
+<!--    <logger name="homework.regular_expressions.ex6.Main" level="INFO"/>-->
 
-    <!--    файловый аппендер для пакета ex2_fileLogger-->
-    <logger name="lesson.loging.ex2_fileLogger" level="INFO">
-        <appender-ref ref="MyRollingFileAppender"/>
+<!--    &lt;!&ndash;    файловый аппендер для пакета ex2_fileLogger&ndash;&gt;-->
+<!--    <logger name="lesson.loging.ex2_fileLogger" level="INFO">-->
+<!--        <appender-ref ref="MyRollingFileAppender"/>-->
+<!--    </logger>-->
+
+<!--    <logger name="homework.json" level="DEBUG">-->
+<!--        <appender-ref ref="MyConsole"/>-->
+<!--        <appender-ref ref="MyFileAppender"/>-->
+<!--    </logger>-->
+
+    <logger name="homework.optional.ex1" level="WARN">
+        <appender-ref ref="MyFileAppender"/>
     </logger>
 
-    <logger name="homework.json" level="DEBUG">
-        <appender-ref ref="MyConsole" />
-        <appender-ref ref="MyFileAppender" />
-    </logger>
+<!--    <logger name="homework.optional.ex1" level="INFO">-->
+<!--&lt;!&ndash;        <appender-ref ref="MyConsole"/>&ndash;&gt;-->
+<!--    </logger>-->
+
+<!--    <logger name="homework.optional.ex2" level="WARN">-->
+<!--        <appender-ref ref="MyFileAppender"/>-->
+<!--    </logger>-->
+
+<!--    <logger name="homework.optional.ex2" level="INFO">-->
+<!--        <appender-ref ref="MyConsole"/>-->
+<!--    </logger>-->
+
 
     <root level="debug">
-        <!--        <appender-ref ref="MyConsole" />-->
+        <appender-ref ref="MyConsole"/>
     </root>
 </configuration>
