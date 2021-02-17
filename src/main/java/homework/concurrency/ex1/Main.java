@@ -46,6 +46,5 @@ public class Main {
             thread2.start();
 
 
-        System.out.println("e");
     }
 }

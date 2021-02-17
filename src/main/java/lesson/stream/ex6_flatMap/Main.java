@@ -27,7 +27,7 @@ public class Main {
 
         System.out.println();
         Arrays.stream(arr)
-                .flatMapToInt(array -> Arrays.stream(array)) //Stream<int[]>->IntStream
+                .flatMapToInt(Arrays::stream) //Stream<int[]>->IntStream
                 .forEach(System.out::println);
 
 
