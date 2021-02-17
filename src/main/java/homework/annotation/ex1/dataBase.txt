@@ -1,0 +1,5 @@
+Name ps4, price 400;
+Name TV, price 500;
+Name xBox, price 300;
+Name boombox, price 120;
+Name notebook, price 850;

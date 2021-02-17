@@ -1,20 +1,21 @@
 package homework.etc;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.Locale;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+
 
 public class Test2 {
     public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        double sum = 0.0;
-        while (scanner.hasNext()) {
-            if (scanner.hasNextDouble()) {
-                sum += scanner.nextDouble();
-            } else {
-                scanner.next();
-            }
-        }
-        System.out.printf(Locale.ENGLISH, "%.6f", sum);
+
+
+        char c;
+        BufferedReader br = new BufferedReader(new
+                InputStreamReader(System.in));
+        System.out.println("Bвeдитe символы, 'q' - для выхода.");
+        do {
+            c = (char) br.read();
+            System.out.println(c);
+        } while(c != 'q');
     }
 }
